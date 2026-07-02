@@ -1,16 +1,19 @@
 <x-layout>
+    {{-- @if ($errors->any)
+        {{ dd($errors->all()) }}
+    @endif --}}
     <x-slot:title>
         Welcome
     </x-slot:title>
+    <div class="card bg-base-100 shadow-md max-w-2xl mx-auto">
+        <x-chirp-form />
+    </div>
+
     <div class="max-w-2xl mx-auto">
-        <div class="card bg-base-100 shadow mt-8">
-            <div class="card-body">
-                <div>
-                    <h1 class="text-3xl font-bold">Welcome to Chirperr</h1>
-                    <p class="mt-4 text-base-content/60">This is your best posting platform. sing (or chirp)!</p>
-                    <p></p>
-                </div>
-            </div>
-        </div>
+        @forelse ($chirps as $chirp)
+            <x-chirp :chirp="$chirp" />
+        @empty
+            <div>No Chirps yet. Be the first to chirp!</div>
+        @endforelse
     </div>
 </x-layout>

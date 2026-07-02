@@ -18,10 +18,14 @@
     </head>
     <body >
         <!-- NAV BAR HERE -->
+        <x-session-success />
+        
+        
 
         <!-- HERO -->
          <main class="flex-1 container p-5 bg-base-300 text-base-content text-xs">
             {{ $slot }}
          </main>
+
     </body>
 </html>
