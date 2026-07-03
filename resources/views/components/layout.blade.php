@@ -18,6 +18,7 @@
     </head>
     <body >
         <!-- NAV BAR HERE -->
+        <x-navbar />
         <x-session-success />
         
         

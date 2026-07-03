@@ -42,32 +42,34 @@
                 </p>
 
                 {{-- Footer --}}
-                <div class="mt-5 flex justify-end items-center gap-2 border-t border-base-200 pt-3">
+                @can('update', $chirp)
+                    <div class="mt-5 flex justify-end items-center gap-2 border-t border-base-200 pt-3">
 
-                    <a
-                        href="/chirps/{{ $chirp->id }}/edit"
-                        class="btn btn-ghost btn-sm"
-                    >
-                        ✏️ Edit
-                    </a>
-
-                    <form
-                        action="/chirps/{{ $chirp->id }}"
-                        method="POST"
-                        onsubmit="return confirm('Are you sure you want to delete this chirp?')"
-                    >
-                        @csrf
-                        @method('DELETE')
-
-                        <button
-                            type="submit"
-                            class="btn btn-error btn-sm btn-outline"
+                        <a
+                            href="/chirps/{{ $chirp->id }}/edit"
+                            class="btn btn-ghost btn-sm"
                         >
-                            🗑 Delete
-                        </button>
-                    </form>
+                            ✏️ Edit
+                        </a>
 
-                </div>
+                        <form
+                            action="/chirps/{{ $chirp->id }}"
+                            method="POST"
+                            onsubmit="return confirm('Are you sure you want to delete this chirp?')"
+                        >
+                            @csrf
+                            @method('DELETE')
+
+                            <button
+                                type="submit"
+                                class="btn btn-error btn-sm btn-outline"
+                            >
+                                🗑 Delete
+                            </button>
+                        </form>
+
+                    </div>
+                @endcan
 
             </div>
 
